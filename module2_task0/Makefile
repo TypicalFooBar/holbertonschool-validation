@@ -7,7 +7,7 @@ run:		## Run
 stop:		## Stop
 	kill $$(pgrep awesome-api)
 
-clean:		## Clean
+clean: stop		## Clean
 	rm ./awesome-api
 	rm ./awesome.log
 
