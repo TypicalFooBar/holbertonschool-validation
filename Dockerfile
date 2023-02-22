@@ -4,6 +4,7 @@ COPY . .
 
 # Update and install from apt
 RUN apt update
+RUN apt upgrade
 RUN apt install -y wget
 RUN apt install -y git
 RUN apt install -y make
