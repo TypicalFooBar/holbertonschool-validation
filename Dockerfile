@@ -6,6 +6,7 @@ COPY . .
 RUN apt update
 RUN apt upgrade
 RUN apt install -y wget
+RUN apt install -y curl
 RUN apt install -y git
 RUN apt install -y make
 RUN apt install -y openssh-server
@@ -39,7 +40,7 @@ RUN wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
 RUN rm ./go1.20.1.linux-amd64.tar.gz
 # Set the path to include Go's bin directory
-RUN echo 'export PATH=$PATH:/usr/local/go/bin'
+RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> /root/.bashrc
 
 # Download the Hugo executable
 RUN wget https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_0.110.0_Linux-64bit.tar.gz
