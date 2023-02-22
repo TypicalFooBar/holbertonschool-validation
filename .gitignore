@@ -1,2 +1,3 @@
 */dist/
 */.hugo_build.lock
+*/coverage-units.out
