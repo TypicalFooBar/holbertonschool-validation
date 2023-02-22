@@ -11,8 +11,8 @@ stop:		## Stop
 	kill $$(pgrep awesome-api) 2>&1 &
 
 clean: stop		## Clean
-	rm ./awesome-api
-	rm ./awesome.log
+	rm -f ./awesome-api
+	rm -f ./awesome.log
 
 test:		## Test
 	curl http://localhost:9999
