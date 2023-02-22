@@ -1,16 +1,7 @@
 #!/bin/sh
-apt-get update && apt-get install -y make wget
+apt-get update && apt-get install -y make golang-go curl
 
-# Download Go
-wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
-rm ./go1.20.1.linux-amd64.tar.gz
-# Set the path to include Go's bin directory
-export PATH=$PATH:/usr/local/go/bin
-
-# Download the Hugo executable
-wget https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_0.110.0_Linux-64bit.tar.gz
-tar -C /usr/local/bin -xzf hugo_0.110.0_Linux-64bit.tar.gz
-rm ./hugo_0.110.0_Linux-64bit.tar.gz
+curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_0.84.0_Linux-64bit.deb -o hugo.deb
+apt install ./hugo.deb
 
 make build
