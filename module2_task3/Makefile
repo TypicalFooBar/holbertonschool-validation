@@ -19,10 +19,10 @@ clean: stop		## Clean
 test: unit-tests integration-tests ## Test
 
 unit-tests:	## Unit Tests
-	go test -v -short -coverprofile=coverage-units.out -run ^main_test.go
+	go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Integration Tests
-	go test -v -short -coverprofile=coverage-integrations.out -run ^main_integration_test.go
+	go test -v -short -coverprofile=coverage-integrations.out
 
 help:		## Help
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
