@@ -45,6 +45,9 @@ jobs:
         run: |
           cd module3_task3
           make package
+    outputs:
+      awesomeWebsiteZip: module3_task3/awesome-website.zip
+      deployMd: module3_task3/DEPLOY.md
   Release:
     needs: Build
     runs-on: ubuntu-20.04
@@ -52,6 +55,9 @@ jobs:
     steps:
       - name: Release
         uses: softprops/action-gh-release@v1
+        env:
+          awesomeWebsiteZip: ${{needs.Build.outputs.awesomeWebsiteZip}}
+          deployMd: ${{needs.Build.outputs.deployMd}}
         with:
-          files: module3_task3/awesome-website.zip
-          body_path: module3_task3/DEPLOY.md
+          files: $awesomeWebsiteZip
+          body_path: $deployMd
