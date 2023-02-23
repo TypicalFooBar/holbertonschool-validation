@@ -2,7 +2,7 @@ name: module3_task3
 on:
   push:
     tags:
-      - 1.0.0
+      - 1.0.*
     branches:
       - main
   schedule:
@@ -45,6 +45,9 @@ jobs:
         run: |
           cd module3_task3
           make package
+
+    if: contains(github.ref, "1.0.*")
+    steps:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
