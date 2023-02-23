@@ -55,9 +55,6 @@ jobs:
     steps:
       - name: Release
         uses: softprops/action-gh-release@v1
-        env:
-          awesomeWebsiteZip: ${{needs.Build.outputs.awesomeWebsiteZip}}
-          deployMd: ${{needs.Build.outputs.deployMd}}
         with:
-          files: $awesomeWebsiteZip
-          body_path: $deployMd
+          files: ${{needs.Build.outputs.awesomeWebsiteZip}}
+          body_path: ${{needs.Build.outputs.deployMd}}
