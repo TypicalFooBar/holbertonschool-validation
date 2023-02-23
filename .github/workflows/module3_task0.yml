@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Module-3-Task-0:
-    runs-on: ubuntu-bionic
+  Task-0:
+    runs-on: ubuntu-20.04
     steps:
       - run: echo "Hello, World!"
