@@ -1,0 +1,243 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'markdownlint-cli' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData markdownlint-cli
+8 silly fetchNamedPackageData markdownlint-cli
+9 silly mapToRegistry name markdownlint-cli
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/markdownlint-cli
+13 verbose request uri https://registry.npmjs.org/markdownlint-cli
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 4:10:25 PM
+16 verbose request id 4ab9318a4d329d16
+17 verbose etag W/"3a580f75571d1db97dd0dc4ce95b51dd"
+18 verbose lastModified Sat, 07 Jan 2023 06:56:31 GMT
+19 http request GET https://registry.npmjs.org/markdownlint-cli
+20 http 304 https://registry.npmjs.org/markdownlint-cli
+21 verbose headers { date: 'Thu, 23 Feb 2023 16:10:25 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'cf-ray': '79e13b461f062ccc-DFW',
+21 verbose headers   age: '51',
+21 verbose headers   'cache-control': 'public, max-age=300',
+21 verbose headers   etag: '"3a580f75571d1db97dd0dc4ce95b51dd"',
+21 verbose headers   'last-modified': 'Sat, 07 Jan 2023 06:56:31 GMT',
+21 verbose headers   vary: 'Accept-Encoding',
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'x-amz-replication-status': 'COMPLETED',
+21 verbose headers   server: 'cloudflare' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Thu, 23 Feb 2023 16:10:25 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'cf-ray': '79e13b461f062ccc-DFW',
+22 silly get     age: '51',
+22 silly get     'cache-control': 'public, max-age=300',
+22 silly get     etag: '"3a580f75571d1db97dd0dc4ce95b51dd"',
+22 silly get     'last-modified': 'Sat, 07 Jan 2023 06:56:31 GMT',
+22 silly get     vary: 'Accept-Encoding',
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'x-amz-replication-status': 'COMPLETED',
+22 silly get     server: 'cloudflare' } ]
+23 verbose etag https://registry.npmjs.org/markdownlint-cli from cache
+24 verbose get saving markdownlint-cli to /root/.npm/registry.npmjs.org/markdownlint-cli/.cache.json
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule markdownlint-cli@0.33.0 checking installable status
+38 silly cache add args [ 'markdownlint-cli', null ]
+39 verbose cache add spec markdownlint-cli
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'markdownlint-cli',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'markdownlint-cli',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed markdownlint-cli@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for markdownlint-cli
+43 info addNameTag [ 'markdownlint-cli', 'latest' ]
+44 silly mapToRegistry name markdownlint-cli
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry uri https://registry.npmjs.org/markdownlint-cli
+48 verbose addNameTag registry:https://registry.npmjs.org/markdownlint-cli not in flight; fetching
+49 verbose get https://registry.npmjs.org/markdownlint-cli not expired, no request
+50 silly addNameTag next cb for markdownlint-cli with tag latest
+51 silly addNamed markdownlint-cli@0.33.0
+52 verbose addNamed "0.33.0" is a plain semver version for markdownlint-cli
+53 silly cache afterAdd markdownlint-cli@0.33.0
+54 verbose afterAdd /root/.npm/markdownlint-cli/0.33.0/package/package.json not in flight; writing
+55 verbose afterAdd /root/.npm/markdownlint-cli/0.33.0/package/package.json written
+56 silly fetchNamedPackageData commander
+57 silly mapToRegistry name commander
+58 silly mapToRegistry using default registry
+59 silly mapToRegistry registry https://registry.npmjs.org/
+60 silly mapToRegistry uri https://registry.npmjs.org/commander
+61 silly fetchNamedPackageData get-stdin
+62 silly mapToRegistry name get-stdin
+63 silly mapToRegistry using default registry
+64 silly mapToRegistry registry https://registry.npmjs.org/
+65 silly mapToRegistry uri https://registry.npmjs.org/get-stdin
+66 silly fetchNamedPackageData glob
+67 silly mapToRegistry name glob
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry uri https://registry.npmjs.org/glob
+71 silly fetchNamedPackageData ignore
+72 silly mapToRegistry name ignore
+73 silly mapToRegistry using default registry
+74 silly mapToRegistry registry https://registry.npmjs.org/
+75 silly mapToRegistry uri https://registry.npmjs.org/ignore
+76 silly fetchNamedPackageData js-yaml
+77 silly mapToRegistry name js-yaml
+78 silly mapToRegistry using default registry
+79 silly mapToRegistry registry https://registry.npmjs.org/
+80 silly mapToRegistry uri https://registry.npmjs.org/js-yaml
+81 silly fetchNamedPackageData jsonc-parser
+82 silly mapToRegistry name jsonc-parser
+83 silly mapToRegistry using default registry
+84 silly mapToRegistry registry https://registry.npmjs.org/
+85 silly mapToRegistry uri https://registry.npmjs.org/jsonc-parser
+86 silly fetchNamedPackageData markdownlint
+87 silly mapToRegistry name markdownlint
+88 silly mapToRegistry using default registry
+89 silly mapToRegistry registry https://registry.npmjs.org/
+90 silly mapToRegistry uri https://registry.npmjs.org/markdownlint
+91 silly fetchNamedPackageData minimatch
+92 silly mapToRegistry name minimatch
+93 silly mapToRegistry using default registry
+94 silly mapToRegistry registry https://registry.npmjs.org/
+95 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+96 silly fetchNamedPackageData run-con
+97 silly mapToRegistry name run-con
+98 silly mapToRegistry using default registry
+99 silly mapToRegistry registry https://registry.npmjs.org/
+100 silly mapToRegistry uri https://registry.npmjs.org/run-con
+101 verbose request uri https://registry.npmjs.org/get-stdin
+102 verbose request no auth needed
+103 info attempt registry request try #1 at 4:10:25 PM
+104 verbose etag W/"305db4d2a7e9e77b6f1107b37f84cbbd"
+105 verbose lastModified Sat, 18 Jun 2022 07:55:13 GMT
+106 http request GET https://registry.npmjs.org/get-stdin
+107 verbose request uri https://registry.npmjs.org/ignore
+108 verbose request no auth needed
+109 info attempt registry request try #1 at 4:10:25 PM
+110 verbose etag W/"c6139c469e6d0a595b3fcd8fdbf311ea"
+111 verbose lastModified Mon, 19 Dec 2022 16:01:45 GMT
+112 http request GET https://registry.npmjs.org/ignore
+113 verbose request uri https://registry.npmjs.org/glob
+114 verbose request no auth needed
+115 info attempt registry request try #1 at 4:10:25 PM
+116 verbose etag W/"4a9429cdc47f425156d5cf764eb374f5"
+117 verbose lastModified Sat, 14 Jan 2023 22:35:35 GMT
+118 http request GET https://registry.npmjs.org/glob
+119 verbose request uri https://registry.npmjs.org/jsonc-parser
+120 verbose request no auth needed
+121 info attempt registry request try #1 at 4:10:25 PM
+122 verbose etag W/"6707808cdb0adb45b095d8184b8a5bc7"
+123 verbose lastModified Sun, 19 Feb 2023 04:25:26 GMT
+124 http request GET https://registry.npmjs.org/jsonc-parser
+125 verbose request uri https://registry.npmjs.org/js-yaml
+126 verbose request no auth needed
+127 info attempt registry request try #1 at 4:10:25 PM
+128 verbose etag W/"8748b3ef6c0da130d6d4339dcfc1ddb5"
+129 verbose lastModified Sun, 19 Jun 2022 05:47:22 GMT
+130 http request GET https://registry.npmjs.org/js-yaml
+131 verbose request uri https://registry.npmjs.org/run-con
+132 verbose request no auth needed
+133 info attempt registry request try #1 at 4:10:25 PM
+134 verbose etag W/"054eb0917de6d7cc4351af23f5979b0b"
+135 verbose lastModified Thu, 07 Jul 2022 19:20:14 GMT
+136 http request GET https://registry.npmjs.org/run-con
+137 verbose request uri https://registry.npmjs.org/markdownlint
+138 verbose request no auth needed
+139 info attempt registry request try #1 at 4:10:25 PM
+140 verbose etag W/"b8d17119823fc6972b43018f01339ec5"
+141 verbose lastModified Wed, 28 Dec 2022 01:50:16 GMT
+142 http request GET https://registry.npmjs.org/markdownlint
+143 verbose request uri https://registry.npmjs.org/minimatch
+144 verbose request no auth needed
+145 info attempt registry request try #1 at 4:10:25 PM
+146 verbose etag W/"24d8370fc016db402cf8becd557a49fa"
+147 verbose lastModified Wed, 22 Feb 2023 23:45:31 GMT
+148 http request GET https://registry.npmjs.org/minimatch
+149 verbose request uri https://registry.npmjs.org/commander
+150 verbose request no auth needed
+151 info attempt registry request try #1 at 4:10:25 PM
+152 verbose etag W/"3d73dd2e83a143bbde6dbd9dd7c95a6c"
+153 verbose lastModified Sat, 11 Feb 2023 20:39:36 GMT
+154 http request GET https://registry.npmjs.org/commander
+155 http 304 https://registry.npmjs.org/get-stdin
+156 verbose headers { date: 'Thu, 23 Feb 2023 16:10:25 GMT',
+156 verbose headers   connection: 'keep-alive',
+156 verbose headers   'cf-ray': '79e13b47088b2ccc-DFW',
+156 verbose headers   age: '201',
+156 verbose headers   'cache-control': 'public, max-age=300',
+156 verbose headers   etag: '"305db4d2a7e9e77b6f1107b37f84cbbd"',
+156 verbose headers   'last-modified': 'Sat, 18 Jun 2022 07:55:13 GMT',
+156 verbose headers   vary: 'Accept-Encoding',
+156 verbose headers   'cf-cache-status': 'HIT',
+156 verbose headers   'x-amz-replication-status': 'COMPLETED',
+156 verbose headers   server: 'cloudflare' }
+157 silly get cb [ 304,
+157 silly get   { date: 'Thu, 23 Feb 2023 16:10:25 GMT',
+157 silly get     connection: 'keep-alive',
+157 silly get     'cf-ray': '79e13b47088b2ccc-DFW',
+157 silly get     age: '201',
+157 silly get     'cache-control': 'public, max-age=300',
+157 silly get     etag: '"305db4d2a7e9e77b6f1107b37f84cbbd"',
+157 silly get     'last-modified': 'Sat, 18 Jun 2022 07:55:13 GMT',
+157 silly get     vary: 'Accept-Encoding',
+157 silly get     'cf-cache-status': 'HIT',
+157 silly get     'x-amz-replication-status': 'COMPLETED',
+157 silly get     server: 'cloudflare' } ]
+158 verbose etag https://registry.npmjs.org/get-stdin from cache
+159 verbose get saving get-stdin to /root/.npm/registry.npmjs.org/get-stdin/.cache.json
+160 verbose stack Error: Missing required argument #1
+160 verbose stack     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+160 verbose stack     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+160 verbose stack     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+160 verbose stack     at /usr/share/npm/lib/install/deps.js:457:7
+160 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+160 verbose stack     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+160 verbose stack     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+160 verbose stack     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+160 verbose stack     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+160 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+161 verbose cwd /app
+162 error Linux 5.15.49-linuxkit
+163 error argv "/usr/bin/node" "/usr/bin/npm" "install" "-g" "markdownlint-cli"
+164 error node v8.10.0
+165 error npm  v3.5.2
+166 error code EMISSINGARG
+167 error typeerror Error: Missing required argument #1
+167 error typeerror     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+167 error typeerror     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+167 error typeerror     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+167 error typeerror     at /usr/share/npm/lib/install/deps.js:457:7
+167 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+167 error typeerror     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+167 error typeerror     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+167 error typeerror     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+167 error typeerror     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+167 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+168 error typeerror This is an error with npm itself. Please report this error at:
+168 error typeerror     <http://github.com/npm/npm/issues>
+169 verbose exit [ 1, true ]

@@ -1,0 +1,7 @@
+name: module3_task0
+on: [push]
+jobs:
+  Task-0-Job:
+    runs-on: main
+    steps:
+      run: echo "Hello, World!"
