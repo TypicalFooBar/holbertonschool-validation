@@ -2,24 +2,6 @@ FROM ubuntu:20.04
 WORKDIR /app
 COPY . .
 
-RUN ./setup.sh
+RUN /app/setup.sh
 
-name: module3_task0
-on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: "0 0 * * *"
-jobs:
-  Task-0:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout repository code
-        uses: actions/checkout@v3
-      - name: Setup
-        run: |
-          cd module3_task0
-          ./setup.sh
-      - name: Build
-        run: make build
+CMD make lint; make build; make unit-tests; make integration-tests; make validate
