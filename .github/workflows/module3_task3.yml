@@ -42,13 +42,14 @@ jobs:
           cd module3_task3
           make validate
       - name: Package
+        run: |
+          cd module3_task3
+          make package
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: awesomeWebsiteZip
           path: module3_task3/awesome-website.zip
-        run: |
-          cd module3_task3
-          make package
   Release:
     needs: Build
     runs-on: ubuntu-20.04
