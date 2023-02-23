@@ -1,4 +1,4 @@
-name: module3_task2
+name: module3_task3
 on:
   push:
     tags:
@@ -12,31 +12,31 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup
         run: |
-          cd module3_task2
+          cd module3_task3
           ./setup.sh
       - name: Lint
         run: |
-          cd module3_task2
+          cd module3_task3
           make lint
       - name: Build
         run: |
-          cd module3_task2
+          cd module3_task3
           make build
       - name: Unit Tests
         run: |
-          cd module3_task2
+          cd module3_task3
           make unit-tests
       - name: Integration Tests
         run: |
-          cd module3_task2
+          cd module3_task3
           make integration-tests
       - name: Validate
         run: |
-          cd module3_task2
+          cd module3_task3
           make validate
       - name: Package
         run: |
-          cd module3_task2
+          cd module3_task3
           make package
       - name: Release
         uses: softprops/action-gh-release@v1
