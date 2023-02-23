@@ -46,6 +46,7 @@ jobs:
           cd module3_task3
           make package
   Release:
+    runs-on: ubuntu-20.04
     if: startsWith(github.ref, '1.0.')
     steps:
       - name: Release
