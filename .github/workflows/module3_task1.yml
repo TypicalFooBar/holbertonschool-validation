@@ -15,5 +15,13 @@ jobs:
         run: |
           cd module3_task0
           ./setup.sh
+      - name: Lint
+        run: make lint
       - name: Build
         run: make build
+      - name: Unit Tests
+        run: make unit-tests
+      - name: Integration Tests
+        run: make integration-tests
+      - name: Validate
+        run: make validate
