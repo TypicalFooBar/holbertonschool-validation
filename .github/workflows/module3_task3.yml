@@ -42,12 +42,16 @@ jobs:
           cd module3_task3
           make validate
       - name: Package
+        uses: actions/upload-artifact@v3
+        with:
+          name: awesomeWebsiteZip
+          path: module3_task3/awesome-website.zip
+        with:
+          name: deployMd
+          path: module3_task3/DEPLOY.md
         run: |
           cd module3_task3
           make package
-    outputs:
-      awesomeWebsiteZip: module3_task3/awesome-website.zip
-      deployMd: module3_task3/DEPLOY.md
   Release:
     needs: Build
     runs-on: ubuntu-20.04
@@ -55,6 +59,6 @@ jobs:
     steps:
       - name: Release
         uses: softprops/action-gh-release@v1
+        uses: actions/download-artifact@v3
         with:
-          files: ${{needs.Build.outputs.awesomeWebsiteZip}}
-          body_path: ${{needs.Build.outputs.deployMd}}
+          name: awesomeWebsiteZip
