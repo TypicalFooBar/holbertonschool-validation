@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set docker to 1 if running locally on docker, otherwise we're running on GitHub Actions
-usingDocker=1
+usingDocker=0
 
 if [ $usingDocker == 1 ]
 then
