@@ -1,7 +1,7 @@
 #!/bin/bash
-apt update
-apt upgrade
-apt install -y wget make shellcheck
+sudo apt update
+sudo apt upgrade
+sudo apt install -y wget make shellcheck
 
 # Download Go
 wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
