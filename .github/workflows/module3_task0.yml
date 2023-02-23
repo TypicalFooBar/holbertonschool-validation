@@ -1,7 +1,10 @@
 name: module3_task0
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
-  Task-0-Job:
-    runs-on: main
+  Module-3-Task-0:
+    runs-on: ubuntu-bionic
     steps:
-      run: echo "Hello, World!"
+      - run: echo "Hello, World!"
