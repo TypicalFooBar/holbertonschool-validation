@@ -46,9 +46,6 @@ jobs:
         with:
           name: awesomeWebsiteZip
           path: module3_task3/awesome-website.zip
-        with:
-          name: deployMd
-          path: module3_task3/DEPLOY.md
         run: |
           cd module3_task3
           make package
@@ -57,8 +54,14 @@ jobs:
     runs-on: ubuntu-20.04
     if: startsWith(github.ref, 'refs/tags/1.0.')
     steps:
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+      - name: Download artifacts from Build
         uses: actions/download-artifact@v3
         with:
           name: awesomeWebsiteZip
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: awesome-website.zip
+          body_path: module3_task3/DEPLOY.md
