@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: awesomeWebsiteZip
-          path: 4/awesome-website.zip
+          path: module3_task4/awesome-website.zip
   Release:
     needs: Build
     runs-on: ubuntu-20.04
