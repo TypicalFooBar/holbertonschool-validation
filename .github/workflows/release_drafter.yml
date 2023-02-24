@@ -7,15 +7,6 @@ on:
     types:
       - closed
 
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-change-title-escapes: '\<*_&'
-template: |
-  ## Changes
-
-  $CHANGES
-
 jobs:
   Merged:
     if: github.event.pull_request.merged == true
