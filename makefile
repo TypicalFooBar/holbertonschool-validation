@@ -3,14 +3,14 @@ build:
 	cp ~/.ssh/docker.pub .
 	cp ~/.ssh/github .
 	cp ~/.ssh/github.pub .
-	docker build -t docker-test .
+	docker build -t holberton-20.04 .
 	rm docker.pub
 	rm github
 	rm github.pub
 
 # Run a docker container
 run:
-	docker run -d -p 2022:22 -p 1313:1313 docker-test
+	docker run -d -p 2022:22 -p 1313:1313 holberton-20.04
 
 # Stop all docker containers
 stop:
