@@ -15,7 +15,7 @@ RUN apt install -y make
 RUN apt install -y openssh-server
 
 # Get most recent versions of nodejs/npm
-curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt install -y nodejs
 
 # Netlify
