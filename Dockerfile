@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:20.04
 WORKDIR /app
 COPY . .
 
@@ -10,6 +10,7 @@ RUN apt install -y curl
 RUN apt install -y git
 RUN apt install -y make
 RUN apt install -y openssh-server
+RUN apt install -y npm
 
 # SSH
 RUN mkdir -p /root/.ssh
