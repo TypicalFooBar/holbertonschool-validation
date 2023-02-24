@@ -2,9 +2,12 @@ FROM ubuntu:20.04
 WORKDIR /app
 COPY . .
 
+# This will stop openssh-server installer from opening a dialog
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Update and install from apt
 RUN apt update
-RUN apt upgrade
+RUN apt upgrade -y
 RUN apt install -y wget
 RUN apt install -y curl
 RUN apt install -y git
