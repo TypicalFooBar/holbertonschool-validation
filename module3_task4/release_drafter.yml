@@ -7,18 +7,9 @@ on:
     types:
       - closed
 
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-change-title-escapes: '\<*_&'
-template: |
-  ## Changes
-
-  $CHANGES
-
 jobs:
   Merged:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && startsWith(github.ref, 'refs/tags/1.0.')
     runs-on: ubuntu-20.04
     permissions:
       contents: write
