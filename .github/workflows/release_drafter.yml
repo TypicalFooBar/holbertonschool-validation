@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: release-drafter/release-drafter@v5
         env:
