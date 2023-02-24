@@ -66,5 +66,4 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: awesome-website.zip
-          body_path: module3_task4/DEPLOY.md
+          files: awesome-website.zip Deploy.md
