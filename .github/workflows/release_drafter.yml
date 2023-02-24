@@ -4,8 +4,7 @@ on:
     tags:
       - 1.0.*
   pull_request:
-    types:
-      - closed
+    types: [opened, reopened, synchronize]
 
 jobs:
   Merged:
