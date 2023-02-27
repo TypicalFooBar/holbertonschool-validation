@@ -1,3 +1,3 @@
 ---
-title: Welcome to Awesome Inc
+title: Welcome to Awesome Inc (via GitHub Actions!!!)
 ---
