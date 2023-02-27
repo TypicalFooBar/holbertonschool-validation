@@ -81,4 +81,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: awesome-website.zip Deploy.md
-
