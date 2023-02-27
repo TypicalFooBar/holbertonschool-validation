@@ -1,6 +1,6 @@
 FROM golang:1.15.8-buster
 WORKDIR /app
-COPY ../ .
+COPY . .
 
 RUN /app/setup.sh
 
