@@ -1,4 +1,4 @@
-name: module3_task5
+name: module4_task0
 on:
   push:
     tags:
@@ -21,41 +21,41 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup
         run: |
-          cd module3_task5
+          cd module4_task0
           ./setup.sh
       - name: Lint
         run: |
-          cd module3_task5
+          cd module4_task0
           make lint
       - name: Build
         run: |
-          cd module3_task5
+          cd module4_task0
           make build
       - name: Unit Tests
         run: |
-          cd module3_task5
+          cd module4_task0
           make unit-tests
       - name: Integration Tests
         run: |
-          cd module3_task5
+          cd module4_task0
           make integration-tests
       - name: Validate
         run: |
-          cd module3_task5
+          cd module4_task0
           make validate
       - name: Package
         run: |
-          cd module3_task5
+          cd module4_task0
           make package
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: awesomeWebsiteZip
-          path: module3_task5/awesome-website.zip
+          path: module4_task0/awesome-website.zip
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
-          publish-dir: './module3_task5/dist'
+          publish-dir: './module4_task0/dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
