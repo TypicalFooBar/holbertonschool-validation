@@ -6,8 +6,7 @@ lint: ## Lint
 
 .PHONY: build
 build: ## Build with Hugo
-	docker run awesome:build hugo
-	docker run awesome:build go build
+	docker run awesome:build /bin/bash -c "hugo; go build"
 
 test: build unit-tests integration-tests ## Test
 
