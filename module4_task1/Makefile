@@ -5,9 +5,10 @@ lint: ## Lint
 	shellcheck setup.sh >/dev/null 2>&1 || echo "Lint Failed"
 
 .PHONY: build
-build: ## Build with Hugo
-	hugo
-	go build
+build: clean ## Build with Hugo
+	docker run --cidfile="cidFile" awesome:build /bin/bash -c "hugo; go build"
+	docker cp `cat cidFile`:/app/dist ./dist
+	rm cidFile
 
 test: build unit-tests integration-tests ## Test
 
@@ -21,12 +22,12 @@ validate: build ## Validate
 	docker run awesome:build echo "PASS"
 
 clean: ## Delete the dist/ directory
-	docker run awesome:build rm -rf dist
-	docker run awesome:build rm -f ./awesome-api
-	docker run awesome:build rm -f ./awesome.log
-	docker run awesome:build rm -f ./coverage-units.out
-	docker run awesome:build rm -f ./coverage-integrations.out
-	docker run awesome:build rm awesome-website.zip
+	rm -rf ./dist
+	rm -f ./awesome-api
+	rm -f ./awesome.log
+	rm -f ./coverage-units.out
+	rm -f ./coverage-integrations.out
+	rm -f ./awesome-website.zip
 
 post: ## Create a new post
 	docker run awesome:build echo '---' >> ./content/posts/$(POST_NAME).md
