@@ -14,10 +14,14 @@ build: clean ## Build with Hugo
 test: build unit-tests integration-tests ## Test
 
 unit-tests: build ## Unit Tests
-	docker run awesome:build go test -v -short -coverprofile=coverage-units.out
+	docker run --cidfile="cidFile" awesome:build go test -v -short -coverprofile=coverage-units.out
+	docker cp `cat cidFile`:/app/coverage-units.out ./coverage-units.out
+	rm cidFile
 
 integration-tests: build ## Integration Tests
-	docker run awesome:build go test -v -short -coverprofile=coverage-integrations.out
+	docker run --cidfile="cidFile" awesome:build go test -v -short -coverprofile=coverage-integrations.out
+	docker cp `cat cidFile`:/app/coverage-integrations.out ./coverage-integrations.out
+	rm cidFile
 
 validate: build ## Validate
 	docker run awesome:build echo "PASS"
