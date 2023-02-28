@@ -27,6 +27,7 @@ validate: build ## Validate
 	docker run awesome:build echo "PASS"
 
 clean: ## Delete the dist/ directory
+	rm -f ./cidFile
 	rm -rf ./dist
 	rm -f ./awesome-api
 	rm -f ./awesome.log
