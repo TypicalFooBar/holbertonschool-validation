@@ -8,6 +8,7 @@ lint: ## Lint
 build: clean ## Build with Hugo
 	docker run --cidfile="cidFile" awesome:build /bin/bash -c "hugo; go build"
 	docker cp `cat cidFile`:/app/dist ./dist
+	docker cp `cat cidFile`:/app/awesome-api ./awesome-api
 	rm cidFile
 
 test: build unit-tests integration-tests ## Test
