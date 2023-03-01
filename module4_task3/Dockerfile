@@ -1,6 +1,9 @@
 FROM ubuntu:20.04
+
 WORKDIR /app
+COPY ./awesome-api .
 
 RUN apt update
 RUN apt upgrade -y
-RUN apt install -y zip
+
+EXPOSE 1313

@@ -1,6 +1,10 @@
+CURRENT_GIT_REF = $(shell git tag --points-at HEAD)
+ifeq ($(CURRENT_GIT_REF), )
+	CURRENT_GIT_REF = $(shell git symbolic-ref --short HEAD)
+endif
+
 build-docker: ## Builds the Docker image based on ./build/Dockerfile
 	docker build -f ./build/Dockerfile -t awesome:build .
-	docker build -f ./Dockerfile -t awesome:package .
 
 lint: ## Lint
 	shellcheck setup.sh >/dev/null 2>&1 || echo "Lint Failed"
@@ -35,6 +39,8 @@ clean: ## Delete the dist/ directory
 	rm -f ./coverage-units.out
 	rm -f ./coverage-integrations.out
 	rm -f ./awesome-website.zip
+	rm -f ./awesome.tar
+	rm -f ./awesome.tar.zip
 
 post: ## Create a new post
 	docker run awesome:build echo '---' >> ./content/posts/$(POST_NAME).md
@@ -45,6 +51,9 @@ help: ## Displays help for this makefile
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 package: build ## Package
-	docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:package zip -r awesome-website.zip dist awesome-api
-	docker cp `cat cidFile`:/app/awesome-website.zip ./awesome-website.zip
-	rm -f ./cidFile
+	docker build -f ./Dockerfile -t awesome:$(CURRENT_GIT_REF) .
+	docker save awesome:main -o awesome.tar
+	zip awesome.tar.zip awesome.tar
+# docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:$(CURRENT_GIT_REF) zip -r awesome-website.zip dist awesome-api
+# docker cp `cat cidFile`:/app/awesome-website.zip ./awesome-website.zip
+# rm -f ./cidFile
