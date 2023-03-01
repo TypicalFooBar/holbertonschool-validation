@@ -1,5 +1,6 @@
 build-docker: ## Builds the Docker image based on ./build/Dockerfile
 	docker build -f ./build/Dockerfile -t awesome:build .
+	docker build -f ./Dockerfile -t awesome:package .
 
 lint: ## Lint
 	shellcheck setup.sh >/dev/null 2>&1 || echo "Lint Failed"
@@ -44,6 +45,6 @@ help: ## Displays help for this makefile
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 package: build ## Package
-	docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:build zip -r awesome-website.zip dist awesome-api
+	docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:package zip -r awesome-website.zip dist awesome-api
 	docker cp `cat cidFile`:/app/awesome-website.zip ./awesome-website.zip
 	rm -f ./cidFile
