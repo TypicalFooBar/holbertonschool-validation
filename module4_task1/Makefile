@@ -9,19 +9,19 @@ build: clean ## Build with Hugo
 	docker run --cidfile="cidFile" awesome:build /bin/bash -c "hugo; go build"
 	docker cp `cat cidFile`:/app/dist ./dist
 	docker cp `cat cidFile`:/app/awesome-api ./awesome-api
-	rm cidFile
+	rm -f ./cidFile
 
 test: build unit-tests integration-tests ## Test
 
 unit-tests: build ## Unit Tests
 	docker run --cidfile="cidFile" awesome:build go test -v -short -coverprofile=coverage-units.out
 	docker cp `cat cidFile`:/app/coverage-units.out ./coverage-units.out
-	rm cidFile
+	rm -f ./cidFile
 
 integration-tests: build ## Integration Tests
 	docker run --cidfile="cidFile" awesome:build go test -v -short -coverprofile=coverage-integrations.out
 	docker cp `cat cidFile`:/app/coverage-integrations.out ./coverage-integrations.out
-	rm cidFile
+	rm -f ./cidFile
 
 validate: build ## Validate
 	docker run awesome:build echo "PASS"
@@ -44,4 +44,6 @@ help: ## Displays help for this makefile
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 package: build ## Package
-	docker run awesome:build zip -r awesome-website.zip dist awesome-api
+	docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:build zip -r awesome-website.zip dist awesome-api
+	docker cp `cat cidFile`:/app/awesome-website.zip ./awesome-website.zip
+	rm -f ./cidFile

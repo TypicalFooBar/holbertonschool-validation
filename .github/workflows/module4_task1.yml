@@ -17,9 +17,9 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v3
-      - name: Install make
+      - name: Setup GitHub Actions Image
         run: sudo apt install -y make
-      - name: Build Docker image
+      - name: Build Docker Image
         run: |
           cd module4_task1
           make build-docker
