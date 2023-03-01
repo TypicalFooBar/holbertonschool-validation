@@ -20,7 +20,9 @@ jobs:
       - name: Install make
         run: sudo apt install -y make
       - name: Build Docker image
-        run: make build-docker
+        run: |
+          cd module4_task1
+          make build-docker
       - name: Lint
         run: |
           cd module4_task1
