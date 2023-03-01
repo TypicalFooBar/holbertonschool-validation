@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update
-apt upgrade
+apt upgrade -y
 apt install -y wget make shellcheck zip
 
 # # Download Go

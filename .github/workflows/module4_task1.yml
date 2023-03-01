@@ -1,12 +1,10 @@
 name: module4_task1
 on:
   push:
-    tags:
-      - 1.0.*
-    branches:
-      - main
+    tags: [ "1.0.*" ]
+    branches: [ "main" ]
   pull_request:
-    types: [opened, reopened]
+    branches: [ "main" ]
   schedule:
     - cron: "0 0 * * *"
 
@@ -19,10 +17,10 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v3
-      - name: Setup
-        run: |
-          cd module4_task1
-          sudo ./setup.sh
+      - name: Install make
+        run: sudo apt install -y make
+      - name: Build Docker image
+        run: make build-docker
       - name: Lint
         run: |
           cd module4_task1
