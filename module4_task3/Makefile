@@ -50,7 +50,7 @@ post: ## Create a new post
 help: ## Displays help for this makefile
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
-package: build-docker build ## Package
+package: build ## Package
 	docker build -f ./Dockerfile -t awesome:$(CURRENT_GIT_REF) .
 	docker save awesome:main -o awesome.tar
 	zip awesome.tar.zip awesome.tar

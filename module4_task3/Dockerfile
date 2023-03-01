@@ -7,4 +7,6 @@ RUN apt-get update \
 	&& apt-get upgrade -y \
 	&& rm -rf /var/lib/apt/lists/*
 
-EXPOSE 1313
+EXPOSE 9999
+
+CMD [ "./awesome-api" ]
