@@ -22,7 +22,7 @@ jobs:
       - name: Setup
         run: |
           cd module4_task1
-          ./setup.sh
+          sudo ./setup.sh
       - name: Lint
         run: |
           cd module4_task1
