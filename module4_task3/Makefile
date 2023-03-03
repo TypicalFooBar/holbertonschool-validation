@@ -52,8 +52,5 @@ help: ## Displays help for this makefile
 
 package: build ## Package
 	docker build -f ./Dockerfile -t awesome:$(CURRENT_GIT_REF) .
-	docker save awesome:main -o awesome.tar
+	docker save awesome:$(CURRENT_GIT_REF) -o awesome.tar
 	zip awesome.tar.zip awesome.tar
-# docker run --cidfile="cidFile" -v dist:/app/dist -v awesome-api:/app/awesome-api awesome:$(CURRENT_GIT_REF) zip -r awesome-website.zip dist awesome-api
-# docker cp `cat cidFile`:/app/awesome-website.zip ./awesome-website.zip
-# rm -f ./cidFile

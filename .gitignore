@@ -5,3 +5,5 @@
 */.netlify
 */awesome-api
 cidFile
+*/*.zip
+*/*.tar
