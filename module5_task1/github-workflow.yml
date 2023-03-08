@@ -18,11 +18,7 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v3
       - name: Setup GitHub Actions Image
-        run: |
-          sudo apt install -y make zip unzip curl
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
+        run: sudo apt install -y make zip
       - name: Build Docker Image
         run: |
           cd module5_task1
