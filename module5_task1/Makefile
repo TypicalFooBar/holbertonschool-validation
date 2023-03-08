@@ -8,6 +8,9 @@ build-docker: ## Builds the Docker image based on ./build/Dockerfile
 
 lint: ## Lint
 	shellcheck setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	shellcheck ensure-server-created.sh >/dev/null 2>&1 || echo "Lint Failed"
+	shellcheck ensure-server-setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	shellcheck deploy.sh >/dev/null 2>&1 || echo "Lint Failed"
 
 .PHONY: build
 build: clean ## Build with Hugo
