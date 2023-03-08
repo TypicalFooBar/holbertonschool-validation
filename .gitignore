@@ -7,3 +7,4 @@
 cidFile
 */*.zip
 */*.tar
+/module5_task0/aws-user-credentials.txt
