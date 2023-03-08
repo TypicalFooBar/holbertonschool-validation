@@ -1,4 +1,4 @@
-name: module4_task3
+name: module5_task1
 on:
   push:
     tags: [ "1.0.*" ]
@@ -21,41 +21,41 @@ jobs:
         run: sudo apt install -y make zip
       - name: Build Docker Image
         run: |
-          cd module4_task3
+          cd module5_task1
           make build-docker
       - name: Lint
         run: |
-          cd module4_task3
+          cd module5_task1
           make lint
       - name: Build
         run: |
-          cd module4_task3
+          cd module5_task1
           make build
       - name: Unit Tests
         run: |
-          cd module4_task3
+          cd module5_task1
           make unit-tests
       - name: Integration Tests
         run: |
-          cd module4_task3
+          cd module5_task1
           make integration-tests
       - name: Validate
         run: |
-          cd module4_task3
+          cd module5_task1
           make validate
       - name: Package
         run: |
-          cd module4_task3
+          cd module5_task1
           make package
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: awesomeWebsiteZip
-          path: module4_task3/awesome-website.zip
+          path: module5_task1/awesome-website.zip
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
-          publish-dir: './module4_task3/dist'
+          publish-dir: './module5_task1/dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
@@ -66,6 +66,21 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
+      - name: Install SSH Key
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.AWESOME_KEY }}
+      - name: Create & Configure EC2 Instance
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          cd module5_task1
+          ./ensure-server-setup.sh "$(./ensure-server-created.sh)"
+      - name: Deploy Docker Image
+        run: |
+          cd module5_task1
+          ./deploy.sh
   Release:
     needs: Build
     runs-on: ubuntu-20.04
