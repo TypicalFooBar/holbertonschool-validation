@@ -6,6 +6,9 @@ ec2InstanceId=$(aws ec2 describe-instances --filters "Name=ip-address,Values=$1"
 # Wait on this ec2 instance to be ready before trying to SSH into it
 aws ec2 wait instance-running --instance-ids $ec2InstanceId
 
+# Add this server as a known host
+ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
+
 # Send commands to the server
 # Update the apt registry: sudo apt update
 # Upgrade all installed software: sudo apt upgrade -y
@@ -14,7 +17,7 @@ aws ec2 wait instance-running --instance-ids $ec2InstanceId
 # Make Docker start on boot of the system: sudo systemctl enable docker
 # Add the ubuntu user to the docker group - this will let us use ssh to communicate with docker from a client: sudo usermod -aG docker ubuntu
 
-ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=60 ubuntu@"$1" "
+ssh ubuntu@"$1" "
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt install docker.io unzip -y
