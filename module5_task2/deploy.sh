@@ -10,4 +10,4 @@ docker context create production --docker "host=ssh://ubuntu@$new_ec2_instance_p
 docker context use production
 
 docker pull tsuroo/awesome-web:"$dockerImageTag"
-docker compose run --detach awesome-web
+docker compose up --detach awesome-web
