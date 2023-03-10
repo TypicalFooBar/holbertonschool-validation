@@ -59,8 +59,6 @@ help: ## Displays help for this makefile
 package: build ## Package
 	echo "CURRENT_GIT_REF=$(CURRENT_GIT_REF)" > docker-compose.env
 	docker compose --env-file docker-compose.env build awesome-web
-	docker save awesome:$(CURRENT_GIT_REF) -o awesome.tar
-	zip awesome.tar.zip awesome.tar
 	echo $(CURRENT_GIT_REF) > awesome_image_tag_name.txt
 
 publish-docker-hub: # Pushes image to Docker Hub. Must be run after `make package`.
