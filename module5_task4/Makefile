@@ -13,7 +13,7 @@ lint: ## Lint
 	shellcheck deploy.sh >/dev/null 2>&1 || echo "Lint Failed"
 
 .PHONY: build
-build: clean ## Build with Hugo
+build: clean ## Build with Hugo - requires that build-docker has been run
 	docker run --cidfile="cidFile" awesome:build
 	docker cp `cat cidFile`:/app/dist ./dist
 	docker cp `cat cidFile`:/app/awesome-api ./awesome-api
@@ -58,10 +58,10 @@ help: ## Displays help for this makefile
 
 package: build ## Package
 	echo "CURRENT_GIT_REF=$(CURRENT_GIT_REF)" > docker-compose.env
-	docker compose --env-file docker-compose.env build awesome-web
+	docker compose --env-file docker-compose.env build reverse-proxy
 	echo $(CURRENT_GIT_REF) > awesome_image_tag_name.txt
 
 publish-docker-hub: # Pushes images to Docker Hub. Must be run after `make package`.
 	docker compose push awesome-static
 	docker compose push awesome-api
-	docker compose push awesome-reverse-proxy
+	docker compose push reverse-proxy
