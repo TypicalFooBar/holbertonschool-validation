@@ -58,6 +58,8 @@ help: ## Displays help for this makefile
 
 package: build ## Package
 	echo "CURRENT_GIT_REF=$(CURRENT_GIT_REF)" > docker-compose.env
+	docker compose --env-file docker-compose.env build awesome-static
+	docker compose --env-file docker-compose.env build awesome-api
 	docker compose --env-file docker-compose.env build reverse-proxy
 	echo $(CURRENT_GIT_REF) > awesome_image_tag_name.txt
 

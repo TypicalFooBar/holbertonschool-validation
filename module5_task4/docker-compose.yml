@@ -24,7 +24,7 @@ services:
     build:
       context: .
       dockerfile: ./docker-reverse-proxy/Dockerfile.reverse-proxy
-    image: tsuroo/awesome-reverse-proxy:${CURRENT_GIT_REF:-main}
+    image: tsuroo/reverse-proxy:${CURRENT_GIT_REF:-main}
     restart: always
     ports:
       - 8080:80
