@@ -27,7 +27,7 @@ services:
     image: tsuroo/reverse-proxy:${CURRENT_GIT_REF:-main}
     restart: always
     ports:
-      - 8080:80
+      - 80:80
     depends_on:
       - awesome-api
       - awesome-static
