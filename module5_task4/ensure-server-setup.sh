@@ -17,7 +17,7 @@ ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
 # Make Docker start on boot of the system: sudo systemctl enable docker
 # Add the ubuntu user to the docker group - this will let us use ssh to communicate with docker from a client: sudo usermod -aG docker ubuntu
 
-ssh ubuntu@"$1" "
+ssh -o ConnectTimeout=180 ubuntu@"$1" "
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt install docker.io unzip -y
