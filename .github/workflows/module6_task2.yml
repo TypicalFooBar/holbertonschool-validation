@@ -47,7 +47,7 @@ jobs:
       - name: Deploy Docker Image
         run: |
           cd module6_task2
-          ./jenkins/deploy.sh
+          ./jenkins/deploy-jenkins.sh
   # Build:
   #   runs-on: ubuntu-20.04
   #   steps:
