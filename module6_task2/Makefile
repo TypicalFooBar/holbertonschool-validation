@@ -67,3 +67,9 @@ publish-docker-hub: # Pushes images to Docker Hub. Must be run after `make packa
 	docker compose push awesome-static
 	docker compose push awesome-api
 	docker compose push reverse-proxy
+
+build-jenkins: # Build Jenkins
+	cd ./jenkins && docker compose build
+
+publish-docker-hub-jenkins: build-jenkins # Publish Jenkins to Docker Hub
+	cd ./jenkins && docker compose push jenkins

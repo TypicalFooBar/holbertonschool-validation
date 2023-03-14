@@ -13,3 +13,5 @@ docker pull tsuroo/awesome-static:"$dockerImageTag"
 docker pull tsuroo/awesome-api:"$dockerImageTag"
 docker pull tsuroo/reverse-proxy:"$dockerImageTag"
 docker compose up --detach --scale awesome-api=2 reverse-proxy
+
+docker context use default
